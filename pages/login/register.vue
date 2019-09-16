@@ -96,20 +96,50 @@
 				console.log("获取验证码")
 				_this.isRotate=true
 				this.$refs.runCode.$emit('runCode'); //触发倒计时（一般用于请求成功验证码后调用）
-				uni.showToast({
-				    icon: 'none',
-					position: 'bottom',
-				    title: '验证码已发送'
-				});
+				this.$request.post("/common/sms/hand-send", {
+					data: {
+						mobile: _this.phoneData
+					},
+					dataType: 'json',
+					responseType: 'text'
+				})
+				.then(res => {
+					if(res.data.code == 0) {
+						uni.showToast({
+						    icon: 'none',
+							position: 'bottom',
+						    title: '验证码已发送'
+						});
+						_this.isRotate=false;
+						return;
+					} else {
+						uni.showToast({
+						    icon: 'none',
+							position: 'bottom',
+						    title: res.data.data.msg
+						});
+						_this.isRotate=false;
+						return;
+					}
+				})
+				.catch(error => {
+					uni.showToast({
+					    icon: 'none',
+						position: 'bottom',
+					    title: '短信发送失败'
+					});
+					uni.hideLoading();
+					return;
+				})
 				
-				// setTimeout(function(){
-				// 	_this.$refs.runCode.$emit('runCode',0); //假装模拟下需要 终止倒计时
-				// 	uni.showToast({
-				// 	    icon: 'none',
-				// 		position: 'bottom',
-				// 	    title: '可以重新点击发送验证码'
-				// 	});
-				// },60000)
+				setTimeout(function(){
+					_this.$refs.runCode.$emit('runCode',0); //假装模拟下需要 终止倒计时
+					// uni.showToast({
+					//     icon: 'none',
+					// 	position: 'bottom',
+					//     title: '可以重新点击发送验证码'
+					// });
+				},60000)
 			},
 		    startReg() {
 				//注册
@@ -149,11 +179,44 @@
 				    });
 				    return false;
 				}
-				console.log("注册成功")
-				_this.isRotate=true
-				setTimeout(function(){
-					_this.isRotate=false
-				},60000)
+				this.$request.post("/passport/user/register", {
+					data: {
+						username: this.phoneData,
+						password: this.passData,
+						mobileCode: this.verCode,
+						source: 1,
+						version: 1
+					},
+					dataType: 'json',
+					responseType: 'text'
+				})
+				.then(res => {
+					if(res.data.code == 0) {
+						uni.showToast({
+							icon: 'success',
+							position: 'bottom',
+							title: '注册成功，请登录'
+						});
+						_this.isRotate=true
+						setTimeout(function(){
+							uni.reLaunch({
+								url: '../../pages/login/login',
+							});
+						},3000)
+						return;
+					} else {
+						uni.showToast({
+						    icon: 'none',
+							position: 'bottom',
+						    title: res.data.data.msg
+						});
+						_this.isRotate=false;
+						return;
+					}
+				})
+				.catch(error => {
+					uni.hideLoading();
+				})
 		    }
 		}
 	}
