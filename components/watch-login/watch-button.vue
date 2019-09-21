@@ -22,12 +22,12 @@
 			bgColor:{
 				//按钮背景颜色
 				type: String,
-				default: "linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.6))",
+				default: "#FFD700",
 			},
 			fontColor:{
 				//按钮字体颜色
 				type: String,
-				default: "#FFFFFF",
+				default: "#FF0000",
 			},
 		},
 		computed:{

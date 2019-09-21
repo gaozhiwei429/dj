@@ -41,6 +41,16 @@
 				"navigationBarTitleText": "关于"
 			}
 		}, {
+			"path": "pages/study/knowledge",
+			"style": {
+				"navigationBarTitleText": "学习中心"
+			}
+		},{
+			"path": "pages/user/centre",
+			"style": {
+				"navigationBarTitleText": "个人中心"
+			}
+		}, {
             "path": "pages/login/login",
             "style": {
 				"navigationBarTitleText": "",
@@ -64,16 +74,29 @@
 					"titleNView": false
 				}
 			}
-        } 
+        } ,
+		{
+			"path": "pages/basics/button",
+			"style": {}
+		}
 	],
 	"subPackages": [
 	],
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8",
-    	"navigationStyle": "custom"
+		"mp-alipay": {
+			/* 支付宝小程序特有相关 */
+			"transparentTitle": "always",
+			"allowsBounceVertical": "NO"
+		},
+		"navigationBarBackgroundColor": "#0081ff",
+		"navigationBarTitleText": "智慧党建",
+		"navigationStyle": "custom",
+		"navigationBarTextStyle": "white"
+		// "navigationBarTextStyle": "black",
+		// "navigationBarTitleText": "uni-app",
+		// "navigationBarBackgroundColor": "#F8F8F8",
+		// "backgroundColor": "#F8F8F8",
+  //   	"navigationStyle": "custom"
 	},
 	// "globalStyle": {
 	// 	"navigationBarTextStyle": "black",
@@ -96,7 +119,7 @@
 				"text": "资讯"
 			},
 			{
-				"pagePath": "pages/about/about",
+				"pagePath": "pages/study/knowledge",
 				"iconPath": "static/img/tabbar/guanzhu.png",
 				"selectedIconPath": "static/img/tabbar/guanzhuactive.png",
 				"text": "学习"
@@ -111,7 +134,9 @@
 				"selectedIconPath": "static/img/tabbar/newsactive.png",
 				"text": "工作"
 			}, {
-				"pagePath": "pages/login/login",
+				// "pagePath": "pages/login/login",
+				// "pagePath": "pages/basics/button",
+				"pagePath": "pages/user/centre",
 				"iconPath": "static/img/tabbar/me.png",
 				"selectedIconPath": "static/img/tabbar/meactive.png",
 				"text": "我的"

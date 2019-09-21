@@ -93,7 +93,7 @@
 		margin: 0 auto;
 	}
 	.swiper-item-img image{
-		width: 80%;
+		width: 100%;
 	}
 	.uniapp-img{
 		height: 20%;
@@ -114,13 +114,13 @@
 		padding: 0 40upx;
 		border-radius: 30upx;
 		font-size: 32upx;
-		color: #454343;
-		border: 1px solid #454343;
+		color: #FF0000;
+		border: 1px solid #FF0000;
 		z-index: 999;
 	}
 	.jump-over{
 		right: 45upx;
-		top: 125upx;
+		top: 25upx;
 	}
 	.experience{
 		right: 50%;
