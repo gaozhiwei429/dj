@@ -1,12 +1,6 @@
 <template>
-	<view>
-		<cu-custom bgColor="bg-gradual-blue" :isBack="true"><block slot="backText">返回</block><block slot="content">按钮</block></cu-custom>
-		<view class="fixed">
-			<cu-custom :isBack="true" bgColor="bg-shadeTop text-white">
-				<block slot="backText">返回</block>
-				<block slot="content">垂直导航</block>
-			</cu-custom>
-		</view>
+	<view class="page">
+		<page-head :title="title"></page-head>
 		<swiper class="screen-swiper round-dot" :indicator-dots="true" :circular="true" :autoplay="true" interval="5000"
 		 duration="500">
 			<swiper-item v-for="(item,index) in 4" :key="index">
@@ -180,6 +174,9 @@
 </script>
 
 <style>
+	@import "static/colorui/main.css";
+	@import "static/colorui/icon.css";
+	
 	.fixed {
 		position: fixed;
 		z-index: 99;

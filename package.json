@@ -1,0 +1,23 @@
+{
+  "name": "dangjian",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaozhiwei429/dj.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gaozhiwei429/dj/issues"
+  },
+  "homepage": "https://github.com/gaozhiwei429/dj#readme",
+  "dependencies": {
+    "@dcloudio/uni-ui": "^1.0.1"
+  }
+}
